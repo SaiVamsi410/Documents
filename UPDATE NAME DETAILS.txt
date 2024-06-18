@@ -9,29 +9,4 @@ S.NO	Contents
 5.	Error Handling
 
 Description
-Update name details API is used to update the name details of a particular account such as surname, forename, name type, start date and end date.
-
-Inputs
-This API accepts the following as inputs: 
-•	Account ID
-•	Forename
-•	Surname
-•	Title
-•	Name type 
-•	Start Date
-•	End Date
-Processing
-1.	Update name details has three modes to process the account ID Update, Add and End.
-2.	API accepts Account ID as input and if its not passed in the request, an error is thrown. And the Account ID should be passed in a proper format else an invalid Account ID error is returned.
-3.	If an account is found, a check is performed to verify it is nationally sensitive. If the account is not nationally sensitive, the nat sens indicator will be set denoting the account is not nationally sensitive.  
-4.	API treats Title and Forename as mandatory inputs and returns the appropriate error when any of these values are missing in the input.
-
-
-
-
-
-
-
-
- 
-
+Update name details API is used to update the name details of a particular 
