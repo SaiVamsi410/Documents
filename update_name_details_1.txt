@@ -1,0 +1,58 @@
+UPDATE NAME DETAILS
+
+Table of contents
+S.NO	Contents
+1.	Description
+2.	Inputs
+3.	Processing
+4.	Output
+5.	Error Handling
+
+Description
+Update name details API is used to update the name details of a particular account such as surname, forename, name type, start date and end date.
+
+Inputs
+This API accepts the following as inputs: 
+•	Account ID
+•	Forename
+•	Surname
+•	Title
+•	Name type 
+•	Start Date
+•	End Date
+Processing
+1.	Update name details has three modes to process the account ID Update, Add and End.
+2.	API accepts Account ID as input and if its not passed in the request, an error is thrown. And the Account ID should be passed in a proper format else an invalid Account ID error is returned.
+3.	If an account is found, a check is performed to verify it is nationally sensitive. If the account is not nationally sensitive, the nat sens indicator will be set denoting the account is not nationally sensitive.  
+4.	API treats Title and Forename as mandatory inputs and returns the appropriate error when any of these values are missing in the input.
+5.	API expects the forename inputs in single field even though there are 2 separate fields are maintaining for forenames which is forename1 and forename2.
+6.	Forename is split based on space in between the forename input value. Till the space it is considered as Forename1 and after the space as Forename2. If there is nothing passed with a space after that ,then it is considered Forename2 as null.
+7.	First character should be an uppercase alphabet.
+8.	Only apostrophe, full stop, hyphen are the allowed in either of the forename field.
+9.	Consecutive punctuation marks are not allowed.
+10.	API returns appropriate error message when either of the forenames fail to satisfy the above rules.
+11.	For all name updates and corrections, Surnames cannot be overwritten to null. While creation of account surname cannot be passed as null if it is an appropriate oracle error is thrown.
+12.	A roll back will be occurred if any oracle errors are thrown. The Oracle error code and message will be sent back with the response to the subscribing system, otherwise a success will be returned.
+
+ Output	
+1.	Error code
+2.	Error message
+3.	National Sensitivity Indicator
+4.	Management Check Indicator
+
+Error Handling
+1.	Invalid Account ID error – Input Account ID must be ‘XX000000’.
+2.	Account ID not found.
+3.	Insufficient Access Level Error
+4.	Mandatory Data not supplied.
+5.	Oracle Error
+6.	Java Exceptions.
+
+
+
+
+
+
+
+ 
+
